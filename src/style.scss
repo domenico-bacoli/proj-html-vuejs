@@ -1,15 +1,55 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+body {
+  font-family: sans-serif;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.container-centered {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.btn {
+  padding: 14px 34px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #2ef41c90, #00D9A6);
+  font-size: 0.7em;
+}
+
+.btn-secondary {
+  background: linear-gradient(to right, #444444, #202020);
+  font-size: 0.7em;
+}
+
+.separator {
+  display: flex;
+  gap: 6px;
+  height: 4px;
+}
+
+.separator-line {
+  background: linear-gradient(to right, #2ef41c90, #00D9A6);
+  height: 100%;
+  border-radius: 6px;
+}
+
+.line1 {
+  width: 10px;
+}
+
+.line2 {
+  width: 40px;
 }
