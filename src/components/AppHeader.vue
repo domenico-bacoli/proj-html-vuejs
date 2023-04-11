@@ -99,9 +99,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-    // test
-    height: 500px;
-
+    margin-bottom: 160px;
 
     .contact-section {
         display: flex;
@@ -192,7 +190,6 @@ header {
                 font-family: 'Quicksand', sans-serif;
                 font-size: 3em;
                 margin-bottom: 30px;
-
 
                 span {
                     color: #00D9A6;
