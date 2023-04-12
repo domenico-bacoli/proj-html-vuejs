@@ -1,5 +1,7 @@
 <script>
-import ServicesItemVue from './ServicesItem.vue';
+import ServicesItem from './ServicesItem.vue';
+import ShowCaseItem from './ShowCaseItem.vue';
+import BlogItem from './BlogItem.vue';
 export default {
     data() {
         return {
@@ -8,14 +10,18 @@ export default {
     },
 
     components: {
-        ServicesItemVue,
+        ServicesItem,
+        ShowCaseItem,
+        BlogItem,
     }
 }
 </script>
 
 <template>
     <main>
-        <ServicesItemVue></ServicesItemVue>
+        <ServicesItem></ServicesItem>
+        <ShowCaseItem></ShowCaseItem>
+        <BlogItem></BlogItem>
     </main>
 </template>
 

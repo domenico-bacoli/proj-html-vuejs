@@ -145,6 +145,9 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #f9f9f9;
+    padding: 150px 0;
+    margin-bottom: 150px;
 
     .our-missions-left {
         position: relative;

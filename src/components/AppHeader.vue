@@ -163,7 +163,7 @@ header {
     }
 
     .jumbo {
-
+        background-color: #F9F9F9;
         height: 700px;
         background-image: url("/images/Group-36-2x.png");
         background-repeat: no-repeat;
