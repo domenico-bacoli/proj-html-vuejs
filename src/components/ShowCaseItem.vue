@@ -160,6 +160,8 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
+@use "../scss/variables" as *;
+
 .projects-example {
     margin: 0 10px;
 
@@ -245,7 +247,7 @@ export default defineComponent({
                 font-size: 2.4em;
 
                 span {
-                    color: #00D9A6;
+                    color: $primary-color;
                 }
             }
         }
@@ -293,7 +295,7 @@ export default defineComponent({
     .text {
         .icon {
             font-size: 2.4em;
-            color: #00D9A6;
+            color: $primary-color;
         }
 
         .customers-details {
@@ -317,7 +319,7 @@ export default defineComponent({
             }
 
             .customers-name {
-                color: #00D9A6;
+                color: $primary-color;
                 font-size: 0.9em;
                 text-transform: uppercase;
             }

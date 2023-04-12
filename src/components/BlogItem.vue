@@ -113,6 +113,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../scss/variables" as *;
+
 .blog {
     margin-top: 180px;
 
@@ -129,7 +131,7 @@ export default {
             margin-bottom: 30px;
 
             span {
-                color: #00D9A6;
+                color: $primary-color;
             }
         }
     }
@@ -181,7 +183,7 @@ export default {
                 font-family: 'Quicksand', sans-serif;
 
                 span {
-                    color: #00D9A6;
+                    color: $primary-color;
                     font-size: 0.5em;
                     padding-right: 8px;
                 }

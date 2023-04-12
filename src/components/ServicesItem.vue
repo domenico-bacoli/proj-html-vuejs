@@ -85,6 +85,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../scss/variables" as *;
+
 .our-services {
     display: flex;
     justify-content: space-between;
@@ -103,7 +105,7 @@ export default {
             font-weight: 600;
 
             span {
-                color: #00D9A6;
+                color: $primary-color;
             }
         }
 
@@ -206,7 +208,7 @@ export default {
             font-weight: 600;
 
             span {
-                color: #00D9A6;
+                color: $primary-color;
             }
         }
 

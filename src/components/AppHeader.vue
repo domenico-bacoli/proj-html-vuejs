@@ -106,6 +106,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../scss/variables" as *;
+
 header {
     margin-bottom: 160px;
 
@@ -163,7 +165,7 @@ header {
                 transition: all 0.2s ease-in-out;
 
                 &.active {
-                    color: #00D9A6;
+                    color: $primary-color;
                 }
 
                 &:hover {
@@ -178,7 +180,7 @@ header {
             gap: 30px;
 
             i {
-                color: #00D9A6;
+                color: $primary-color;
                 cursor: pointer;
             }
         }
@@ -201,7 +203,7 @@ header {
             padding-left: 50px;
 
             .experience {
-                color: #00D9A6;
+                color: $primary-color;
                 letter-spacing: 1.3ch;
                 text-transform: uppercase;
                 font-size: 0.7em;
@@ -214,7 +216,7 @@ header {
                 margin-bottom: 30px;
 
                 span {
-                    color: #00D9A6;
+                    color: $primary-color;
                 }
             }
         }

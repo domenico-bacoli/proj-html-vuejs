@@ -50,7 +50,6 @@ export default {
   <AppMain></AppMain>
   <AppFooter></AppFooter>
   <div>
-    <!-- Il pulsante viene visualizzato solo quando lo scroll è superiore a 100px -->
     <button v-if="showButton" @click="scrollTop" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></button>
   </div>
 </template>
