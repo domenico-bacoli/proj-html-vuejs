@@ -121,6 +121,14 @@ header {
             display: flex;
             gap: 20px;
             font-size: 0.9em;
+
+            i {
+                cursor: pointer;
+
+                &:hover {
+                    color: gray;
+                }
+            }
         }
     }
 

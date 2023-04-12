@@ -3,15 +3,47 @@
 export default {
     data() {
         return {
-            images: [
-                "/images/ina-soulis-227104-unsplash-1024x1024.jpg",
-                "/images/sunisa-misa-531163-unsplash-1024x1024.jpg",
-                "/images/355H-1024x1024.jpg",
-                "/images/photo-1448932252197-d19750584e56-1024x1024.jpg",
-                "/images/business-competition-PB366D8-1024x1024.jpg",
-                "/images/cozy-sofa-in-living-room-PQR5AB9-1024x1024.jpg",
-                "/images/photo-1448932252197-d19750584e56-1024x1024.jpg",
-                "/images/cody-davis-253928-unsplash-1024x1024.jpg",
+            projects: [
+                {
+                    name: "A Famous Ferris Wheel",
+                    image: "/images/ina-soulis-227104-unsplash-1024x1024.jpg",
+                    category: "Marketing",
+                },
+                {
+                    name: "A Famous Ferris Wheel",
+                    image: "/images/sunisa-misa-531163-unsplash-1024x1024.jpg",
+                    category: "Marketing",
+                },
+                {
+                    name: "A Famous Ferris Wheel",
+                    image: "/images/355H-1024x1024.jpg",
+                    category: "Marketing",
+                },
+                {
+                    name: "A Famous Ferris Wheel",
+                    image: "/images/photo-1448932252197-d19750584e56-1024x1024.jpg",
+                    category: "Marketing",
+                },
+                {
+                    name: "A Famous Ferris Wheel",
+                    image: "/images/business-competition-PB366D8-1024x1024.jpg",
+                    category: "Marketing",
+                },
+                {
+                    name: "A Famous Ferris Wheel",
+                    image: "/images/cozy-sofa-in-living-room-PQR5AB9-1024x1024.jpg",
+                    category: "Marketing",
+                },
+                {
+                    name: "A Famous Ferris Wheel",
+                    image: "/images/photo-1448932252197-d19750584e56-1024x1024.jpg",
+                    category: "Marketing",
+                },
+                {
+                    name: "A Famous Ferris Wheel",
+                    image: "/images/cody-davis-253928-unsplash-1024x1024.jpg",
+                    category: "Marketing",
+                },
             ],
         };
     },
@@ -46,8 +78,13 @@ export default {
                 <div class="separator-line line2"></div>
             </div>
             <div class="card-container">
-                <div class="card" v-for="image in images">
-                    <img :src="image" alt="card-image">
+                <div class="card" v-for="project in projects">
+                    <img :src="project.image" :alt="project.name">
+                    <div class="overlay"></div>
+                    <div class="text-absolute">
+                        <div class="title"> {{ project.name }}</div>
+                        <div class="category">{{ project.category }}</div>
+                    </div>
                 </div>
             </div>
             <div class="read-more-button">
@@ -91,15 +128,60 @@ export default {
     .card-container {
         display: flex;
         flex-flow: row wrap;
-        column-gap: 4px;
+        gap: 4px;
         margin: 60px 0 80px;
 
         .card {
+            position: relative;
             width: calc(100% / 4 - (4px / 4 * 3));
+            transition: all 0.4s ease-in-out;
+            cursor: pointer;
 
             img {
+                display: block;
                 width: 100%;
                 border-radius: 4px;
+            }
+
+            .overlay {
+                position: absolute;
+                display: none;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                bottom: 0;
+                border-radius: 4px;
+                background: linear-gradient(to right, #2ef41c90, #00D9A6);
+            }
+
+            .text-absolute {
+                position: absolute;
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                bottom: 15%;
+                left: 8%;
+                color: white;
+                font-weight: bold;
+                font-size: 1.2em;
+
+
+                .category {
+                    font-size: 0.7em;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                }
+            }
+
+            &:hover .text-absolute,
+            &:hover .overlay {
+                display: flex;
+            }
+
+            &:hover {
+                position: relative;
+                z-index: 2;
+                transform: scale(1.13);
             }
         }
     }

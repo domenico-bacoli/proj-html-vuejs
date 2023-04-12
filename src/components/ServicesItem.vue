@@ -127,6 +127,22 @@ export default {
         padding: 40px 60px;
         border-radius: 12px;
         box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: linear-gradient(to right, #00D9A6, #2ef41c90);
+            transform: scale(1.05);
+        }
+
+        &:hover .title,
+        &:hover .text {
+            color: white;
+        }
+
+        &:hover .icon img {
+            filter: invert(1);
+        }
 
         .title {
             font-size: 1.3em;
@@ -178,7 +194,7 @@ export default {
     }
 
     .our-missions-right {
-        width: 30%;
+        width: 32%;
         display: flex;
         flex-direction: column;
         gap: 30px;
@@ -196,6 +212,7 @@ export default {
 
         .overview {
             font-size: 0.9em;
+            line-height: 1.3;
             color: #555555;
 
         }
