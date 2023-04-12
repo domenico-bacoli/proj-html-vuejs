@@ -1,6 +1,18 @@
 <script>
 
-export default {
+import { defineComponent } from 'vue'
+import { Carousel, Pagination, Slide } from 'vue3-carousel'
+
+import 'vue3-carousel/dist/carousel.css'
+
+export default defineComponent({
+    name: 'Autoplay',
+    components: {
+        Carousel,
+        Slide,
+        Pagination,
+    },
+
     data() {
         return {
             projects: [
@@ -45,10 +57,29 @@ export default {
                     category: "Marketing",
                 },
             ],
+
+            customers: [
+                {
+                    image: "/images/businesswoman-analysing-document-P8WSNMC-1024x820.jpg",
+                    name: "Lissa Durbin",
+                    overview: "When it comes to barbequing, there are two main schools of thought for the techniques that you can use. Freshly scrambled eggs with applewood smoked bacon - are amazing!",
+                },
+                {
+                    image: "/images/businesswoman-analysing-document-P8WSNMC-1024x820.jpg",
+                    name: "Lisa Simpson",
+                    overview: "When it comes to barbequing, there are two main schools of thought for the techniques that you can use. Freshly scrambled eggs with applewood smoked bacon - are amazing!",
+                },
+                {
+                    image: "/images/businesswoman-analysing-document-P8WSNMC-1024x820.jpg",
+                    name: "Marge Simpson",
+                    overview: "When it comes to barbequing, there are two main schools of thought for the techniques that you can use. Freshly scrambled eggs with applewood smoked bacon - are amazing!",
+                },
+            ],
         };
     },
 
-}
+})
+
 </script>
 
 <template>
@@ -91,29 +122,40 @@ export default {
                 <button class="btn btn-primary">READ MORE</button>
             </div>
         </section>
+
+        <!-- START CAROUSEL -->
         <section class="customers-review">
-            <div class="text">
-                <div class="icon">
-                    <i class="fa-solid fa-quote-left"></i>
-                </div>
-                <p>When it comes to barbequing, there are two main schools of thought for the
-                    techniques that you can use. Freshly scrambled eggs with applewood smoked bacon
-                    - are amazing!
-                </p>
-                <div class="customers-details">
-                    <div class="customers-image">
-                        <img src="/images/businesswoman-analysing-document-P8WSNMC-1024x820.jpg" alt="Lissa Durbin">
-                    </div>
-                    <div class="customers-name">
-                        LISSA DURBIN
-                    </div>
-                    <div class="type">Client</div>
-                </div>
-            </div>
+            <img class="back-image" src="/images/four-businesspeople-in-a-boardroom-with-paperwork-PC4V8H4.jpg" alt="">
             <div class="overlay"></div>
+            <Carousel :autoplay="3000" :wrap-around="true">
+                <Slide v-for="slide in customers" :key="slide">
+                    <div class="carousel__item">
 
+                        <div class="text">
+                            <div class="icon">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div class="customers-details">
+                                <div class="customers-overview">
+                                    {{ slide.overview }}
+                                </div>
+                                <div class="customers-image">
+                                    <img :src="slide.image" alt="Lissa Durbin">
+                                </div>
+                                <div class="customers-name">
+                                    {{ slide.name }}
+                                </div>
+                                <div class="type">Client</div>
+                            </div>
+                        </div>
+                    </div>
+                </Slide>
+                <template #addons>
+                    <Pagination />
+                </template>
+            </Carousel>
         </section>
-
+        <!-- END CAROUSEL -->
     </div>
 </template>
 
@@ -134,7 +176,7 @@ export default {
         .card {
             position: relative;
             width: calc(100% / 4 - (4px / 4 * 3));
-            transition: all 0.4s ease-in-out;
+            transition: all 0.2s ease-in-out;
             cursor: pointer;
 
             img {
@@ -180,8 +222,8 @@ export default {
 
             &:hover {
                 position: relative;
-                z-index: 2;
-                transform: scale(1.13);
+                z-index: 1;
+                transform: scale(1.10);
             }
         }
     }
@@ -218,26 +260,36 @@ export default {
     }
 }
 
+.carousel {
+    position: absolute;
+    color: white;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.8;
+    text-align: center;
+    font-size: 1.1em;
+    font-style: italic;
+    width: 100%;
+}
+
+.carousel__item {
+    height: 500px;
+}
+
 .customers-review {
     position: relative;
-    height: 600px;
-    background-image: url("/images/four-businesspeople-in-a-boardroom-with-paperwork-PC4V8H4.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0.9;
-    margin-bottom: 200px;
+    height: 550px;
+    width: 100%;
+
+    .back-image {
+        width: 100%;
+        height: 550px;
+        object-fit: cover;
+        opacity: 0.3;
+    }
 
     .text {
-        position: absolute;
-        color: rgba(255, 255, 255, 0.6);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        line-height: 2;
-        text-align: center;
-        font-size: 1.2em;
-        font-style: italic;
-
         .icon {
             font-size: 2.4em;
             color: #00D9A6;
@@ -248,6 +300,10 @@ export default {
             flex-direction: column;
             align-items: center;
             margin-top: 40px;
+
+            .customers-overview {
+                width: 43%;
+            }
 
             .customers-image {
                 margin: 20px 0;
@@ -262,6 +318,7 @@ export default {
             .customers-name {
                 color: #00D9A6;
                 font-size: 0.9em;
+                text-transform: uppercase;
             }
 
             .type {
@@ -272,9 +329,12 @@ export default {
     }
 
     .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(0, 0, 0, 0.9);
+        background-color: rgb(0, 0, 0, 0.7);
     }
 }
 </style>

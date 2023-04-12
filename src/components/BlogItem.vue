@@ -114,6 +114,7 @@ export default {
 
 <style lang="scss" scoped>
 .blog {
+    margin-top: 180px;
 
     .blog-title,
     .separator {
