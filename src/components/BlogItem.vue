@@ -234,6 +234,7 @@ export default {
                 border: none;
                 background-color: rgb(75, 75, 75);
                 box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+                color: #AAAAAA;
             }
 
             ::placeholder {
@@ -264,6 +265,18 @@ export default {
         display: flex;
         align-items: center;
         gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .questions {
+        .questions-card {
+            .questions-input {
+                input {
+                    padding: 12px 60px;
+                }
+            }
+        }
     }
 }
 </style>

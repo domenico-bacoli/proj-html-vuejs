@@ -127,7 +127,7 @@ export default defineComponent({
         <section class="customers-review">
             <img class="back-image" src="/images/four-businesspeople-in-a-boardroom-with-paperwork-PC4V8H4.jpg" alt="">
             <div class="overlay"></div>
-            <Carousel :autoplay="3000" :wrap-around="true">
+            <Carousel :autoplay="2000" :wrap-around="true">
                 <Slide v-for="slide in customers" :key="slide">
                     <div class="carousel__item">
 
@@ -275,6 +275,7 @@ export default defineComponent({
 
 .carousel__item {
     height: 500px;
+    width: 100%;
 }
 
 .customers-review {

@@ -11,12 +11,22 @@ export default {
                 "contact",
             ],
             activeNavLinksIndex: 0,
+
+            slides: [
+                "01",
+                "02",
+                "03",
+            ],
+            activeSlideIndex: 0,
         };
     },
 
     methods: {
         activeNavLinks(index) {
             this.activeNavLinksIndex = index;
+        },
+        activeJumboSlides(index) {
+            this.activeSlideIndex = index;
         }
     },
 }
@@ -83,11 +93,9 @@ export default {
                             <li> - TWITTER</li>
                         </ul>
                     </div>
-                    <div class="jumbo-slider">
-                        <div class="slide-1"> 01</div>
-                        <div class="slide-2">02</div>
-                        <div class="slide-3">03</div>
-
+                    <div class="jumbo-sliders">
+                        <div v-for="(slide, index) in slides " :class="activeSlideIndex == index ? 'active' : ''"
+                            @click="activeJumboSlides(index)" class="jumbo-slider">{{ slide }}</div>
                     </div>
                 </div>
 
@@ -152,9 +160,14 @@ header {
             li {
                 cursor: pointer;
                 color: #555555;
+                transition: all 0.2s ease-in-out;
 
                 &.active {
                     color: #00D9A6;
+                }
+
+                &:hover {
+                    transform: scale(1.12);
                 }
             }
         }
@@ -166,6 +179,7 @@ header {
 
             i {
                 color: #00D9A6;
+                cursor: pointer;
             }
         }
     }
@@ -210,6 +224,7 @@ header {
             color: #555555;
             font-size: 0.8em;
             letter-spacing: 0.1ch;
+            line-height: 1.4;
         }
 
         .button {
@@ -233,13 +248,58 @@ header {
                 }
             }
 
-            .jumbo-slider {
+            .jumbo-sliders {
                 display: flex;
-                gap: 20px;
+                align-items: center;
+                justify-content: space-around;
                 background-color: #444444;
-                padding: 10px 24px;
+                width: 160px;
+                height: 42px;
                 border-radius: 20px;
                 color: #AAAAAA;
+
+                .jumbo-slider {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 80px;
+                    height: 36px;
+                    margin: 0 3px;
+                    cursor: pointer;
+                }
+
+                .active {
+                    background: linear-gradient(to right, #00D9A6, #9df925d7);
+                    border-radius: 20px;
+                    color: rgb(255, 255, 255, 0.7);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    header {
+
+        .jumbo {
+            .slide-show {
+                .social-list ul {
+                    gap: 6px;
+                    font-size: 0.7em;
+
+                    li {
+                        font-size: 0.7em;
+                    }
+                }
+
+                .jumbo-sliders {
+                    width: 130px;
+
+
+                    .jumbo-slider {
+                        width: 60px;
+                    }
+                }
             }
         }
     }
