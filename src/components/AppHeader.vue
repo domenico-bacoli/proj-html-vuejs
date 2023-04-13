@@ -52,33 +52,36 @@ export default {
 
 <template>
     <header class="container-centered">
-        <div class="contact-section">
-            <div class="number">
-                <div class="fax">(001)88451234</div>
-                <div class="telephone">88455438</div>
-            </div>
-            <div class="social">
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-pinterest-p"></i>
-            </div>
-        </div>
         <nav>
-            <div class="nav-logo">
-                <img src="/images/cropped-Group-39-2x.png" alt="logo image">
-            </div>
-            <div class="nav-link">
-                <ul>
-                    <li v-for="(link, index) in navLinks" :class="this.activeNavLinksIndex == index ? 'active' : ''"
-                        @click="activeNavLinks(index)">{{ link }}</li>
-                </ul>
-            </div>
-            <div class="nav-button">
-                <div class="purchase-button">
-                    <button class="btn btn-primary">PURCHASE</button>
+            <div class="nav-top">
+                <div class="number">
+                    <div class="fax"><i class="fa-solid fa-phone"></i>(001)88451234</div>
+                    <div class="telephone">88455438</div>
                 </div>
-                <div class="search-icon">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="social">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-pinterest-p"></i>
+                </div>
+            </div>
+
+            <div class="nav-bottom">
+                <div class="nav-logo">
+                    <img src="/images/cropped-Group-39-2x.png" alt="logo image">
+                </div>
+                <div class="nav-link">
+                    <ul>
+                        <li v-for="(link, index) in navLinks" :class="this.activeNavLinksIndex == index ? 'active' : ''"
+                            @click="activeNavLinks(index)">{{ link }}</li>
+                    </ul>
+                </div>
+                <div class="nav-button">
+                    <div class="purchase-button">
+                        <button class="btn btn-primary">PURCHASE</button>
+                    </div>
+                    <div class="search-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -131,85 +134,103 @@ export default {
 header {
     margin-bottom: 160px;
 
-    .contact-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 30px;
-        padding: 0 44px;
-        background-color: #3D3D3D;
-        color: white;
-        font-weight: bold;
-
-        .number {
-            display: flex;
-            gap: 12px;
-            font-size: 0.7em;
-        }
-
-        .social {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9em;
-
-            i {
-                cursor: pointer;
-
-                &:hover {
-                    color: gray;
-                }
-            }
-        }
-    }
-
     nav {
-        height: 100px;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
+        flex-direction: column;
+        position: fixed;
+        width: 100%;
+        box-shadow: 0 0 50px rgb(0, 0, 0, 0.2);
+        z-index: 3;
 
-        .nav-logo img {
-            width: 80%;
-        }
-
-        .nav-link ul {
+        .nav-top {
             display: flex;
-            gap: 26px;
-            text-transform: uppercase;
-            font-size: 0.85em;
-
-            li {
-                cursor: pointer;
-                color: #555555;
-                transition: all 0.2s ease-in-out;
-
-                &.active {
-                    color: $primary-color;
-                }
-
-                &:hover {
-                    transform: scale(1.12);
-                }
-            }
-        }
-
-        .nav-button {
-            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 30px;
+            height: 30px;
+            padding: 0 44px;
+            background-color: #3D3D3D;
+            color: white;
+            font-weight: bold;
 
-            i {
-                color: $primary-color;
-                cursor: pointer;
+            .number {
+                display: flex;
+                gap: 12px;
+                font-size: 0.7em;
+
+                i {
+                    padding-right: 10px;
+                }
+            }
+
+            .social {
+                display: flex;
+                gap: 20px;
+                font-size: 0.9em;
+
+                i {
+                    cursor: pointer;
+
+                    &:hover {
+                        color: gray;
+                    }
+                }
             }
         }
+
+        .nav-bottom {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            padding: 0 20px;
+            width: 100%;
+            background-color: white;
+
+            .nav-logo img {
+                width: 80%;
+            }
+
+            .nav-link ul {
+                display: flex;
+                gap: 30px;
+                text-transform: uppercase;
+                font-size: 0.85em;
+
+                li {
+                    cursor: pointer;
+                    color: #555555;
+                    transition: all 0.2s ease-in-out;
+
+                    &.active {
+                        color: $primary-color;
+                    }
+
+                    &:hover {
+                        transform: scale(1.12);
+                    }
+                }
+            }
+
+            .nav-button {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+
+                i {
+                    color: $primary-color;
+                    cursor: pointer;
+                }
+            }
+        }
+
     }
 
     .jumbo {
         display: flex;
         background-color: #F9F9F9;
         overflow: hidden;
+        padding-top: 120px;
 
         .jumbo-image {
             margin: -20px -255px -20px 0;
@@ -217,7 +238,6 @@ header {
 
             img {
                 width: 85%;
-
             }
         }
 
@@ -226,7 +246,7 @@ header {
             flex-direction: column;
             height: 100%;
             width: 50%;
-            padding-top: 110px;
+            padding-top: 74px;
             padding-left: 50px;
 
             .experience {
