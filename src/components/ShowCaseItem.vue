@@ -311,11 +311,11 @@ export default defineComponent({
             margin-top: 40px;
 
             .customers-overview {
-                width: 43%;
+                width: 50%;
             }
 
             .customers-image {
-                margin: 20px 0;
+                margin: 30px 0;
 
                 img {
                     width: 80px;

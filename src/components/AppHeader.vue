@@ -52,7 +52,7 @@ export default {
 
 <template>
     <header class="container-centered">
-        <nav>
+        <nav class="container-centered">
             <div class="nav-top">
                 <div class="number">
                     <div class="fax"><i class="fa-solid fa-phone"></i>(001)88451234</div>
@@ -178,17 +178,16 @@ header {
         }
 
         .nav-bottom {
-
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 90px;
             padding: 0 20px;
             width: 100%;
-            background-color: white;
+            background-color: #ffffff;
 
             .nav-logo img {
-                width: 80%;
+                width: 185px;
             }
 
             .nav-link ul {
@@ -199,7 +198,7 @@ header {
 
                 li {
                     cursor: pointer;
-                    color: #555555;
+                    color: $overview-color;
                     transition: all 0.2s ease-in-out;
 
                     &.active {
@@ -227,17 +226,22 @@ header {
     }
 
     .jumbo {
+        position: relative;
         display: flex;
+        justify-content: space-between;
         background-color: #F9F9F9;
         overflow: hidden;
         padding-top: 120px;
+        height: 780px;
 
         .jumbo-image {
-            margin: -20px -255px -20px 0;
+            position: absolute;
             width: 70%;
+            right: -20%;
+            top: 12%;
 
             img {
-                width: 85%;
+                width: 830px;
             }
         }
 
@@ -261,7 +265,7 @@ header {
                 font-family: $font-title;
                 font-size: 3.8em;
                 margin-bottom: 30px;
-                width: 80%;
+                width: 90%;
 
                 span {
                     color: $primary-color;
