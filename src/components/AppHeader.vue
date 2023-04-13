@@ -13,9 +13,27 @@ export default {
             activeNavLinksIndex: 0,
 
             slides: [
-                "01",
-                "02",
-                "03",
+                {
+                    number: "01",
+                    image: "/images/Group-36-2x.png",
+                    title: "We Are a Web Design",
+                    titleSpan: "Agency",
+                    overview: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics a large language ocean.Separated they live in Bookmarksgrove",
+                },
+                {
+                    number: "02",
+                    image: "/images/Group-40-2x.png",
+                    title: "A Group of Expert",
+                    titleSpan: "Planners",
+                    overview: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics a large language ocean.Separated they live in Bookmarksgrove. Far far away, behind the word mountains, far from the countriesVokalia and Consonantia, there live the blind texts.",
+                },
+                {
+                    number: "03",
+                    image: "/images/Group-35-2x.png",
+                    title: "Focus on Your",
+                    titleSpan: "Business",
+                    overview: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics a large language ocean.Separated they live in Bookmarksgrove. Separated they live in Bookmarksgrove right at the coast of the Semantics a large language ocean.",
+                },
             ],
             activeSlideIndex: 0,
         };
@@ -51,7 +69,7 @@ export default {
             </div>
             <div class="nav-link">
                 <ul>
-                    <li v-for="(link, index) in navLinks" :class="activeNavLinksIndex == index ? 'active' : ''"
+                    <li v-for="(link, index) in navLinks" :class="this.activeNavLinksIndex == index ? 'active' : ''"
                         @click="activeNavLinks(index)">{{ link }}</li>
                 </ul>
             </div>
@@ -66,20 +84,21 @@ export default {
         </nav>
 
         <section class="jumbo">
+
             <div class="jumbo-description">
                 <div class="experience">17 years of experience</div>
                 <div class="title">
-                    <h1>We Are a<br>Web Design <span>Agency</span></h1>
+                    <h1>{{ this.slides[this.activeSlideIndex].title }} <span>{{ this.slides[this.activeSlideIndex].titleSpan
+                    }}</span>
+                    </h1>
                 </div>
                 <div class="separator">
                     <div class="separator-line line1"></div>
                     <div class="separator-line line2"></div>
                 </div>
                 <div class="overview">
-                    <p>Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts. Separated
-                        they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.Separated they live in Bookmarksgrove</p>
+                    <p>{{ this.slides[this.activeSlideIndex].overview }}</p>
+
                 </div>
                 <div class="button">
                     <button class="btn btn-secondary">READ MORE</button>
@@ -94,12 +113,13 @@ export default {
                         </ul>
                     </div>
                     <div class="jumbo-sliders">
-                        <div v-for="(slide, index) in slides " :class="activeSlideIndex == index ? 'active' : ''"
-                            @click="activeJumboSlides(index)" class="jumbo-slider">{{ slide }}</div>
+                        <div v-for="(slide, index) in slides " :class="this.activeSlideIndex == index ? 'active' : ''"
+                            @click="activeJumboSlides(index)" class="jumbo-slider">{{ slide.number }}</div>
                     </div>
                 </div>
-
-
+            </div>
+            <div class="jumbo-image">
+                <img :src="this.slides[this.activeSlideIndex].image" :alt="this.slides[activeSlideIndex].title">
             </div>
         </section>
     </header>
@@ -155,9 +175,9 @@ header {
 
         .nav-link ul {
             display: flex;
-            gap: 22px;
+            gap: 26px;
             text-transform: uppercase;
-            font-size: 0.8em;
+            font-size: 0.85em;
 
             li {
                 cursor: pointer;
@@ -187,12 +207,19 @@ header {
     }
 
     .jumbo {
+        display: flex;
         background-color: #F9F9F9;
-        height: 700px;
-        background-image: url("/images/Group-36-2x.png");
-        background-repeat: no-repeat;
-        background-position: 160% 50%;
-        background-size: 75%;
+        overflow: hidden;
+
+        .jumbo-image {
+            margin: -20px -255px -20px 0;
+            width: 70%;
+
+            img {
+                width: 85%;
+
+            }
+        }
 
         .jumbo-description {
             display: flex;
@@ -211,9 +238,10 @@ header {
             }
 
             .title h1 {
-                font-family: 'Quicksand', sans-serif;
-                font-size: 3em;
+                font-family: $font-title;
+                font-size: 3.8em;
                 margin-bottom: 30px;
+                width: 80%;
 
                 span {
                     color: $primary-color;
@@ -222,11 +250,12 @@ header {
         }
 
         .overview {
-            margin: 40px 0 50px;
-            color: #555555;
+            margin: 40px 0 30px;
+            color: $overview-color;
             font-size: 0.8em;
             letter-spacing: 0.1ch;
             line-height: 1.4;
+            min-height: 80px;
         }
 
         .button {
@@ -271,7 +300,7 @@ header {
                 }
 
                 .active {
-                    background: linear-gradient(to right, #00D9A6, #9df925d7);
+                    background: linear-gradient(to right, $primary-color, $secondary-color);
                     border-radius: 20px;
                     color: rgb(255, 255, 255, 0.7);
                 }
@@ -284,19 +313,26 @@ header {
     header {
 
         .jumbo {
+
+            .jumbo-description {
+                .title h1 {
+
+                    font-size: 2.8em;
+                }
+            }
+
             .slide-show {
                 .social-list ul {
-                    gap: 6px;
+                    gap: 4px;
                     font-size: 0.7em;
 
                     li {
-                        font-size: 0.7em;
+                        font-size: 0.6em;
                     }
                 }
 
                 .jumbo-sliders {
-                    width: 130px;
-
+                    width: 120px;
 
                     .jumbo-slider {
                         width: 60px;

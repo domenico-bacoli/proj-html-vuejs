@@ -83,6 +83,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../scss/variables" as *;
+
 .footer-top {
     display: flex;
     gap: 40px;
@@ -100,9 +102,9 @@ export default {
         }
 
         .overview {
-            font-size: 0.8em;
+            font-size: 0.9em;
             line-height: 1.3;
-            color: #888888;
+            color: $overview-color;
         }
 
         img {
@@ -110,7 +112,8 @@ export default {
         }
 
         strong {
-            font-family: 'Quicksand', sans-serif;
+            font-family: $font-title;
+            font-size: 1.3em;
         }
 
         .separator {
@@ -120,22 +123,22 @@ export default {
         ul {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
         }
 
         .contact-list {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 2px;
         }
 
         li {
-            font-size: 0.8em;
-            color: #888888;
+            font-size: 0.9em;
+            color: $overview-color;
         }
 
         a {
-            color: #888888;
+            color: $overview-color;
             text-decoration: none;
 
             &:hover {

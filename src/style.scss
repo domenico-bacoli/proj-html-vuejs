@@ -1,3 +1,5 @@
+@use "../src/scss/variables" as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +11,9 @@ body {
 }
 
 .container-centered {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 ul {
@@ -26,18 +29,26 @@ ul {
   transition: 0.3s ease-in-out;
 
   &:hover {
-    transform: scale(1.13);
+    transform: scale(1.1);
   }
 }
 
 .btn-primary {
-  background: linear-gradient(to right, #2ef41c90, #00D9A6);
+  background: linear-gradient(to right, $secondary-color, $primary-color);
   font-size: 0.7em;
+
+  &:hover {
+    background: linear-gradient(to right, #444444, #202020);
+  }
 }
 
 .btn-secondary {
   background: linear-gradient(to right, #444444, #202020);
   font-size: 0.7em;
+
+  &:hover {
+    background: linear-gradient(to right, $secondary-color, $primary-color);
+  }
 }
 
 .separator {
@@ -47,7 +58,7 @@ ul {
 }
 
 .separator-line {
-  background: linear-gradient(to right, #2ef41c90, #00D9A6);
+  background: linear-gradient(to right, $secondary-color, $primary-color);
   height: 100%;
   border-radius: 6px;
 }

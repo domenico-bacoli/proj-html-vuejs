@@ -22,7 +22,7 @@ export default {
                     image: "/images/stopwatch.png",
                     title: "Online Marketing",
                     overview: "Far far away, behind the word mountains, far from the countries Vokalia Separated...",
-                }
+                },
             ],
         };
     },
@@ -99,9 +99,9 @@ export default {
         padding-left: 20px;
 
         h2 {
-            font-family: 'Quicksand', sans-serif;
+            font-family: $font-title;
             margin-bottom: 30px;
-            font-size: 2.5em;
+            font-size: 2.6em;
             font-weight: 600;
 
             span {
@@ -115,7 +115,7 @@ export default {
     }
 
     .our-services-right {
-        width: 60%;
+        width: 55%;
         display: flex;
         flex-flow: row wrap;
         gap: 28px;
@@ -133,7 +133,7 @@ export default {
         transition: all 0.3s ease-in-out;
 
         &:hover {
-            background: linear-gradient(to right, #00D9A6, #2ef41c90);
+            background: linear-gradient(to right, $primary-color, $secondary-color);
             transform: scale(1.05);
         }
 
@@ -153,7 +153,7 @@ export default {
 
         .text {
             font-size: 0.7em;
-            color: #555555;
+            color: $overview-color;
             line-height: 1.5;
         }
     }
@@ -186,26 +186,27 @@ export default {
         .absolute-image {
             position: absolute;
             top: 10%;
-            right: -20%;
+            right: -10%;
 
             img {
-                width: 500px;
+                width: 550px;
                 border-radius: 30px;
             }
         }
     }
 
     .our-missions-right {
-        width: 32%;
+        width: 38%;
         display: flex;
         flex-direction: column;
         gap: 30px;
         margin-right: 120px;
 
         .title h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 2.4em;
+            font-family: $font-title;
+            font-size: 2.7em;
             font-weight: 600;
+            width: 70%;
 
             span {
                 color: $primary-color;
@@ -214,8 +215,9 @@ export default {
 
         .overview {
             font-size: 0.9em;
-            line-height: 1.3;
-            color: #555555;
+            line-height: 1.5;
+            color: $overview-color;
+            width: 90%;
 
         }
     }

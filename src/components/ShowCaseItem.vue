@@ -17,7 +17,7 @@ export default defineComponent({
         return {
             projects: [
                 {
-                    name: "A Famous Ferris Wheel",
+                    name: "The Basket of Flower",
                     image: "/images/ina-soulis-227104-unsplash-1024x1024.jpg",
                     category: "Marketing",
                 },
@@ -27,34 +27,34 @@ export default defineComponent({
                     category: "Marketing",
                 },
                 {
-                    name: "A Famous Ferris Wheel",
+                    name: "Complementary Colors",
                     image: "/images/355H-1024x1024.jpg",
                     category: "Marketing",
                 },
                 {
-                    name: "A Famous Ferris Wheel",
+                    name: "Business Prestige",
                     image: "/images/photo-1448932252197-d19750584e56-1024x1024.jpg",
-                    category: "Marketing",
+                    category: "Branding",
                 },
                 {
-                    name: "A Famous Ferris Wheel",
+                    name: "Colorful Origami Boats",
                     image: "/images/business-competition-PB366D8-1024x1024.jpg",
                     category: "Marketing",
                 },
                 {
-                    name: "A Famous Ferris Wheel",
+                    name: "Modern Couch",
                     image: "/images/cozy-sofa-in-living-room-PQR5AB9-1024x1024.jpg",
                     category: "Marketing",
                 },
                 {
-                    name: "A Famous Ferris Wheel",
+                    name: "Hot Air Balloons",
                     image: "/images/photo-1448932252197-d19750584e56-1024x1024.jpg",
                     category: "Marketing",
                 },
                 {
-                    name: "A Famous Ferris Wheel",
+                    name: "Make Difference",
                     image: "/images/cody-davis-253928-unsplash-1024x1024.jpg",
-                    category: "Marketing",
+                    category: "Branding",
                 },
             ],
 
@@ -121,6 +121,7 @@ export default defineComponent({
             <div class="read-more-button">
                 <button class="btn btn-primary">READ MORE</button>
             </div>
+
         </section>
 
         <!-- START CAROUSEL -->
@@ -170,6 +171,7 @@ export default defineComponent({
     }
 
     .card-container {
+        position: relative;
         display: flex;
         flex-flow: row wrap;
         gap: 4px;
@@ -195,7 +197,7 @@ export default defineComponent({
                 top: 0;
                 bottom: 0;
                 border-radius: 4px;
-                background: linear-gradient(to right, #2ef41c90, #00D9A6);
+                background: linear-gradient(to right, rgba(155, 225, 93, 0.8), rgba(0, 217, 166, 0.8));
             }
 
             .text-absolute {
@@ -207,7 +209,8 @@ export default defineComponent({
                 left: 8%;
                 color: white;
                 font-weight: bold;
-                font-size: 1.2em;
+                font-size: 1.25em;
+                font-family: $font-title;
 
 
                 .category {
@@ -227,6 +230,8 @@ export default defineComponent({
                 z-index: 1;
                 transform: scale(1.10);
             }
+
+
         }
     }
 
@@ -243,8 +248,9 @@ export default defineComponent({
             width: 40%;
 
             h2 {
-                font-family: 'Quicksand', sans-serif;
-                font-size: 2.4em;
+                font-family: $font-title;
+                font-size: 2.6em;
+                font-weight: 600;
 
                 span {
                     color: $primary-color;
@@ -254,9 +260,9 @@ export default defineComponent({
 
         .section-overview {
             align-self: flex-end;
-            width: 55%;
+            width: 50%;
             font-size: 0.85em;
-            color: #555555;
+            color: $overview-color;
             line-height: 1.5;
         }
     }

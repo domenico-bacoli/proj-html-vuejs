@@ -89,7 +89,7 @@ export default {
                     <h4>Start a New Project</h4>
                 </div>
                 <div class="questions-input">
-                    <input type="text" placeholder="Enter Your Email Address">
+                    <input type="text" placeholder="Enter Your Email Address              SUBMIT">
                 </div>
             </div>
             <div class="questions-card primary">
@@ -125,8 +125,8 @@ export default {
         margin-bottom: 30px;
 
         h2 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 2.4em;
+            font-family: $font-title;
+            font-size: 2.7em;
             font-weight: 600;
             margin-bottom: 30px;
 
@@ -148,11 +148,17 @@ export default {
             width: calc(100% / 3 - (10px / 3 * 2));
             margin-bottom: 80px;
 
-
             img {
                 width: 100%;
                 border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease-in-out;
             }
+
+            &:hover img {
+                transform: scale(1.01);
+            }
+
         }
 
         .cards-details {
@@ -170,17 +176,32 @@ export default {
             transform: translateX(50%);
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
+            cursor: pointer;
+            transition: bottom 0.3s;
+
+            &:hover {
+                background: linear-gradient(to right, $primary-color, $secondary-color);
+                color: white;
+                bottom: -15%;
+            }
+
+            &:hover i,
+            &:hover .date {
+                color: white;
+            }
+
 
 
             .date {
                 color: #AAAAAA;
-                font-size: 0.7em;
+                font-size: 0.8em;
             }
 
             .title {
                 display: flex;
                 align-items: center;
-                font-family: 'Quicksand', sans-serif;
+                font-family: $font-title;
+                font-size: 1.1em;
 
                 span {
                     color: $primary-color;
@@ -222,7 +243,7 @@ export default {
         }
 
         h4 {
-            font-family: 'Quicksand', sans-serif;
+            font-family: $font-title;
             font-size: 1.8em;
             font-weight: 600;
             margin-bottom: 30px;
@@ -231,12 +252,16 @@ export default {
 
         .questions-input {
             input {
-                padding: 16px 100px;
+
+                width: 320px;
+                height: 50px;
+                padding: 0 30px;
                 border-radius: 30px;
                 border: none;
                 background-color: rgb(75, 75, 75);
                 box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
                 color: #AAAAAA;
+
             }
 
             ::placeholder {
@@ -246,7 +271,7 @@ export default {
     }
 
     .primary {
-        background: linear-gradient(to right, #00D9A6, #2ef41c90);
+        background: linear-gradient(to right, $primary-color, $secondary-color);
         box-shadow: 2px 6px 20px #00D9A680;
     }
 
@@ -275,7 +300,9 @@ export default {
         .questions-card {
             .questions-input {
                 input {
-                    padding: 12px 60px;
+                    width: 200px;
+                    height: 50px;
+                    padding: 0 20px;
                 }
             }
         }
